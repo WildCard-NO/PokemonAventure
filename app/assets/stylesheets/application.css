@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+
+
+/* style.css */
+
+/* Apply border styles to the div */
+.box-border {
+    border: 2px solid #000; /* 2px solid black border */
+    padding: 20px; /* Add padding for better visibility */
+    text-align: center; /* Center text within the box */
+    font-size: 24px; /* Set the font size to 24 pixels */
+    padding-bottom: 600px; /* Increase the bottom margin to 30 pixels */
+    width: 80%; /* Set the width to 80% of the container */
+
+
+  }
+  
