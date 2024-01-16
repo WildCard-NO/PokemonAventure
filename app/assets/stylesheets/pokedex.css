@@ -24,4 +24,16 @@ body {
     width: 250px;
     height: 500px;
     background-color: yellow;
+    font-size: 18px;
+    overflow-y: auto;
+}
+
+.pokemon-name {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+
+
 }
