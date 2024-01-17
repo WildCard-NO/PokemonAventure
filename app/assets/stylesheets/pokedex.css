@@ -45,3 +45,10 @@ body {
     margin-top: 20px;
     background-color: white
 }
+
+.type-box {
+    padding: 3px;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
