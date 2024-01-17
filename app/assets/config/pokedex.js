@@ -58,4 +58,8 @@ function updatePokemon(){
         type.classList.add(types[i]["type"]["name"]); //adds background color and font color
         typesDiv.append(type);
     }
+
+
+    //update descrtiption
+    document.getElementById("pokemon-description").innerText = pokedex[this.id]["desc"];
 }
