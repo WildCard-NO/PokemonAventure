@@ -8,7 +8,7 @@ body {
     border: 10px solid lightgray;
     border-radius: 10px;
 
-    background-color: green;
+    /* background-color: green; */
     display: flex;
     margin: 0 auto;
     margin-top: 60px;
@@ -17,14 +17,14 @@ body {
 #pokemon-info {
     width: 250px;
     height: 500px;
-    background-color: cyan;
+    /* background-color: cyan; */
     text-align: center;
 }
 
 #pokemon-list {
     width: 250px;
     height: 500px;
-    background-color: yellow;
+    /* background-color: yellow; */
     font-size: 18px;
     overflow-y: auto;
 }
@@ -142,4 +142,18 @@ body {
 .poison {
     background-color: darkviolet;
     color: white;
+}
+
+#pokemon-description {
+    width: 230px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 2px;
+    font-size: 18px;
+    overflow-y: auto;
 }
