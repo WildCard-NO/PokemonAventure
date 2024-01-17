@@ -34,13 +34,14 @@ async function getPokemon(num) {
     const pokemonType = pokemon["types"];
     const pokemonImg = pokemon["sprites"]["front_default"];
 
-    // Fetch additional details about the Pokémon, such as description
     const speciesUrl = pokemon["species"]["url"];
     const speciesResponse = await fetch(speciesUrl);
     const speciesData = await speciesResponse.json();
-    const pokemonDesc = speciesData["flavor_text_entries"][9]["flavor_text"];
 
-    // Populate the Pokedex entry for the current Pokémon
+    // Check if flavor text entries exist and select the first one if available
+    const flavorTextEntries = speciesData["flavor_text_entries"];
+    const pokemonDesc = flavorTextEntries.length > 0 ? flavorTextEntries[0]["flavor_text"] : "No description available.";
+
     pokedex[num] = {"name" : pokemonName, "img" : pokemonImg, "types" : pokemonType, "desc" : pokemonDesc};
 }
 
