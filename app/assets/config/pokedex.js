@@ -1,65 +1,77 @@
-const pokemonCount = 300;
+const apiUrl = "https://pokeapi.co/api/v2/pokemon/";
 var pokedex = {}; // {1 : {"name" : "bulbsaur", "img" : url, "type" : ["grass", "poison"], "desc" : "...."} }
 
+// When the window loads, fetch the total count of Pokémon from the API and populate the Pokedex
 window.onload = async function() {
     // getPokemon(1);
-    for (let i = 1; i <= pokemonCount; i++) {
+
+    const totalPokemonCount = await getTotalPokemonCount();
+
+    for (let i = 1; i <= totalPokemonCount; i++) {
         await getPokemon(i);
-        //<div id="1" class="pokemon-name">BULBASAUR</div>
-        let pokemon = document.createElement("div");
-        pokemon.id = i;
-        pokemon.innerText = i.toString() + ". " + pokedex[i]["name"].toUpperCase();
-        pokemon.classList.add("pokemon-name");
-        pokemon.addEventListener("click", updatePokemon);
-        document.getElementById("pokemon-list").append(pokemon);
+        createPokemonElement(i);
     }
 
+    // Set the description for the first Pokémon in the Pokedex
     document.getElementById("pokemon-description").innerText = pokedex[1]["desc"];
-
-    console.log(pokedex);
 }
 
+// Fetch the total count of Pokémon from the API
+async function getTotalPokemonCount() {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data.count;
+}
+
+// Fetch details for a specific Pokémon and update the Pokedex
 async function getPokemon(num) {
-    let url = "https://pokeapi.co/api/v2/pokemon/" + num.toString();
+    const url = `${apiUrl}${num}`;
 
-    let res = await fetch(url);
-    let pokemon = await res.json();
-    // console.log(pokemon);
+    const response = await fetch(url);
+    const pokemon = await response.json();
 
-    let pokemonName = pokemon["name"];
-    let pokemonType = pokemon["types"];
-    let pokemonImg = pokemon["sprites"]["front_default"];
+    const pokemonName = pokemon["name"];
+    const pokemonType = pokemon["types"];
+    const pokemonImg = pokemon["sprites"]["front_default"];
 
-    res = await fetch(pokemon["species"]["url"]);
-    let pokemonDesc = await res.json();
+    // Fetch additional details about the Pokémon, such as description
+    const speciesUrl = pokemon["species"]["url"];
+    const speciesResponse = await fetch(speciesUrl);
+    const speciesData = await speciesResponse.json();
+    const pokemonDesc = speciesData["flavor_text_entries"][9]["flavor_text"];
 
-    // console.log(pokemonDesc);
-    pokemonDesc = pokemonDesc["flavor_text_entries"][9]["flavor_text"];
-
+    // Populate the Pokedex entry for the current Pokémon
     pokedex[num] = {"name" : pokemonName, "img" : pokemonImg, "types" : pokemonType, "desc" : pokemonDesc};
-
 }
 
-function updatePokemon(){
+// Create a new element for a Pokémon and append it to the Pokedex
+function createPokemonElement(num) {
+    const pokemonElement = document.createElement("div");
+    pokemonElement.id = num;
+    pokemonElement.innerText = num.toString() + ". " + pokedex[num]["name"].toUpperCase();
+    pokemonElement.classList.add("pokemon-name");
+    pokemonElement.addEventListener("click", updatePokemon);
+    document.getElementById("pokemon-list").append(pokemonElement);
+}
+
+// Update the displayed information when a Pokémon is clicked
+function updatePokemon() {
     document.getElementById("pokemon-img").src = pokedex[this.id]["img"];
 
-    //clear previous type
-    let typesDiv = document.getElementById("pokemon-types");
-    while (typesDiv.firstChild) {
-        typesDiv.firstChild.remove();
-    }
+    // Clear previous type information
+    const typesDiv = document.getElementById("pokemon-types");
+    typesDiv.innerHTML = '';
 
-    //update types
-    let types = pokedex[this.id]["types"];
+    // Update the displayed types for the current Pokémon
+    const types = pokedex[this.id]["types"];
     for (let i = 0; i < types.length; i++) {
-        let type = document.createElement("span");
+        const type = document.createElement("span");
         type.innerText = types[i]["type"]["name"].toUpperCase();
         type.classList.add("type-box");
-        type.classList.add(types[i]["type"]["name"]); //adds background color and font color
+        type.classList.add(types[i]["type"]["name"]); // Add background color and font color
         typesDiv.append(type);
     }
 
-
-    //update descrtiption
+    // Update the displayed description for the current Pokémon
     document.getElementById("pokemon-description").innerText = pokedex[this.id]["desc"];
 }
