@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "about", to: "about#index"
+  get "battle", to: "battle#index"
   get "pokedex", to: "pokedex#index"
 
   get "password", to: "passwords#edit", as: :edit_password
