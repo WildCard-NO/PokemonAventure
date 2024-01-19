@@ -10,25 +10,31 @@
     </head>
 
 <body>
-    <div id="content-box">
-        <div id="top-container">
-            <div id="input-container">
-                <input type="text" id="pokemonName" placeholder="Enter pokemon name">
-                <button id="fetchButton" onclick="fetchData()">Fetch Pokemon</button>
-            </div>
-        </div>
-        <div id="main-container">
-            <!-- Left Side, display pokemon info -->
-            <div id="pokemon-info">
-                <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-                <div id="pokemon-types">
-                    <span class="type-box grass"> GRASS</span><span class="type-box poison">POISON</span>
+<div id="outer-container">
+    <div id="center-container">
+        <div id="content-box">
+            <div id="top-container">
+                <div id="input-container">
+                    <input type="text" id="pokemonName" placeholder="Enter pokemon name">
+                    <button id="fetchButton" onclick="fetchData()">Fetch Pokemon</button>
                 </div>
-                <div id="pokemon-description"></div>
             </div>
-            <!-- Right side, display pokemon list -->
-            <div id="pokemon-list"></div>
+            <div id="main-container">
+                <!-- Left Side, display pokemon info -->
+                <div id="pokemon-info">
+                    <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+                    <div id="pokemon-types">
+                        <span class="type-box grass"> GRASS</span><span class="type-box poison">POISON</span>
+                    </div>
+                    <div id="pokemon-description"></div>
+                </div>
+                <!-- Right side, display pokemon list -->
+                <div id="pokemon-list"></div>
+            </div>
         </div>
+        <!-- Resize handle outside the content-box on the left -->
+        <div id="resize-handle"></div>
     </div>
+</div>
 </body>
 </html>
