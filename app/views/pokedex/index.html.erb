@@ -5,22 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokedex</title>
 
-        <link rel="stylesheets" href="app/assets/stylesheets/pokedex.css">
+        <%= stylesheet_link_tag ('pokedex') %>
         <%= javascript_include_tag('pokedex.js') %>
     </head>
 
-    <body>
+<body>
+<div id="outer-container">
+    <div id="center-container">
         <div id="content-box">
-        <!--Left Side, display pokemon info -->
-            <div id="pokemon-info">
-            <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
-            <div id="pokemon-types">
-                <span class="type-box grass"> GRASS</span><span class="type-box poison">POISON</span>
+            <div id="top-container">
+                <div id="input-container">
+                    <input type="text" id="pokemonName" placeholder="Enter pokemon name">
+                    <button id="fetchButton" onclick="fetchData()">Fetch Pokemon</button>
+                </div>
             </div>
-            <div id="pokemon-description"></div>
+            <div id="main-container">
+                <!-- Left Side, display pokemon info -->
+                <div id="pokemon-info">
+                    <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+                    <div id="pokemon-types">
+                        <span class="type-box grass"> GRASS</span><span class="type-box poison">POISON</span>
+                    </div>
+                    <div id="pokemon-description"></div>
+                </div>
+                <!-- Right side, display pokemon list -->
+                <div id="pokemon-list"></div>
+            </div>
         </div>
-        <!-- Right side, display pokemon list -->
-        <div id="pokemon-list"></div>
-        </div>
-    </body>
+        <!-- Resize handle outside the content-box on the left -->
+        <div id="resize-handle"></div>
+    </div>
+</div>
+</body>
 </html>
