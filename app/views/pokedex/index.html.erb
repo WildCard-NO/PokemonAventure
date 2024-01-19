@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokémon Battle</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
+
+        <%= stylesheet_link_tag ('pokedex') %>
+        <%= javascript_include_tag('pokedex.js') %>
+    </head>
+
 <body>
-
-  <div class="pokemon" id="bulbasaur">
-    <h2>Bulbasaur</h2>
-    <a href="https://pokemondb.net/pokedex/bulbasaur">
-      <img src="https://img.pokemondb.net/sprites/yellow/normal/bulbasaur-color.png" alt="Bulbasaur">
-    </a>
-    <p>Type: Grass/Poison</p>
-    <!-- Add more information or stats as needed -->
-  </div>
-
-  <div class="pokemon" id="charmander">
-    <h2>Charmander</h2>
-    <a href="https://pokemondb.net/pokedex/charmander">
-      <img src="URL_TO_CHARMANDER_IMAGE" alt="Charmander">
-    </a>
-    <p>Type: Fire</p>
-    <!-- Add more information or stats as needed -->
-  </div>
-
-  <!-- Add more Pokémon elements as needed -->
-
+<div id="outer-container">
+    <div id="center-container">
+        <div id="content-box">
+            <div id="top-container">
+                <div id="input-container">
+                    <input type="text" id="pokemonName" placeholder="Enter pokemon name">
+                    <button id="fetchButton" onclick="fetchData()">Fetch Pokemon</button>
+                </div>
+            </div>
+            <div id="main-container">
+                <!-- Left Side, display pokemon info -->
+                <div id="pokemon-info">
+                    <img id="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+                    <div id="pokemon-types">
+                        <span class="type-box grass"> GRASS</span><span class="type-box poison">POISON</span>
+                    </div>
+                    <div id="pokemon-description"></div>
+                </div>
+                <!-- Right side, display pokemon list -->
+                <div id="pokemon-list"></div>
+            </div>
+        </div>
+        <!-- Resize handle outside the content-box on the left -->
+        <div id="resize-handle"></div>
+    </div>
+</div>
 </body>
 </html>
