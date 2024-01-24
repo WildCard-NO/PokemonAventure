@@ -3,11 +3,14 @@
     padding: 20px; /* Add padding for better visibility */
     text-align: center; /* Center text within the box */
     font-size: 24px; /* Set the font size to 24 pixels */
-    width: 60%; /* Set the width to 60% of the container */
-    height: 60%; /* Set the height to 60% of the container */
+    width: 1000px; /* Set the width to 60% of the container */
+    height: 700px; /* Set the height to 60% of the container */
     margin: auto; /* Center the box horizontally */
     position: absolute; /* Positioning method */
     top: 50%; /* Move the box down by 50% of the container's height */
     left: 50%; /* Move the box right by 50% of the container's width */
     transform: translate(-50%, -50%); /* Adjust for centering */
+
+    background: url("./cave_battle.jpg") no-repeat;
+    background-size: cover;
 }
