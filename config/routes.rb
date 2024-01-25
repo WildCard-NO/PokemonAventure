@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  get "about", to: "about#index"
+  get "battle", to: "battle#index"
   get "pokedex", to: "pokedex#index"
+  get "users", to: "users#index"
+  resources :users, only: [:index]
+
 
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"
