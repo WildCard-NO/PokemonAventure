@@ -1,5 +1,6 @@
 .box-border {
     border: 2px solid #000; /* 2px solid black border */
+    background-color: white; /* pure white background
     padding: 20px; /* Add padding for better visibility */
     text-align: center; /* Center text within the box */
     font-size: 24px; /* Set the font size to 24 pixels */
@@ -14,3 +15,21 @@
     background: url("./cave_battle.jpg") no-repeat;
     background-size: cover;
 }
+
+#pokemon-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+  }
+  
+  #pokemon-info img {
+    max-width: 100%;
+    border: none;
+    background: transparent;
+    transform: scaleX(-1); /* Mirror the image horizontally */
+  }
+  
+  #pokemon-info p {
+    margin: 5px 0;
+  }
