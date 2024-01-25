@@ -16,20 +16,37 @@
     background-size: cover;
 }
 
-#pokemon-info {
+.pokemon-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: transparent;
   }
   
-  #pokemon-info img {
+  .pokemon-info img {
     max-width: 100%;
     border: none;
     background: transparent;
-    transform: scaleX(-1); /* Mirror the image horizontally */
   }
   
-  #pokemon-info p {
+  .pokemon-info p {
     margin: 5px 0;
   }
+  
+  #pokemon1-info {
+    /* Add specific styles for Ditto, if needed */
+    margin-top: 400px;
+    margin-right: 400px;
+  }
+  
+  #pokemon1-info img {
+    /* Mirror the image horizontally for Ditto */
+    transform: scaleX(-1);
+  }
+  
+  #pokemon2-info {
+    /* Add specific styles for Pikachu, if needed */
+    margin-top: -350px;
+    margin-right: -500px;
+  }
+  

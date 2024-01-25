@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Box-like Border</title>
   <!-- Link to your external CSS file within the "css" folder -->
-  <link rel="stylesheet" href="../../stylesheets/application.css">
   <link rel="stylesheet" href="/assets/battle.css">
+    <%= javascript_include_tag('battle.js') %>
 
 </head>
 <body>
@@ -14,34 +14,12 @@
   <!-- Create a div with the specified class -->
   <div class="box-border">
     <h1>Battle</h1>
-    <div id="pokemon-info">
+    <div id="pokemon1-info" class="pokemon-info">
       <!-- Ditto's sprite and name will be displayed here -->
     </div>
+    <div id="pokemon2-info" class="pokemon-info">
+      <!-- Pikachu's sprite and name will be displayed here -->
+    </div>
   </div>
-
-  <script>
-    // Make a request to the PokeAPI to get information about Ditto
-    fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
-      .then(response => response.json())
-      .then(data => {
-        const pokemonInfo = document.getElementById('pokemon-info');
-
-        // Display Ditto's sprite and name
-        const spriteUrl = data.sprites.front_default;
-        const name = data.name;
-
-        const imgElement = document.createElement('img');
-        imgElement.src = spriteUrl;
-
-        const nameElement = document.createElement('p');
-        nameElement.textContent = `Name: ${name}`;
-
-        // Append the image and name elements to the pokemonInfo div
-        pokemonInfo.appendChild(imgElement);
-        pokemonInfo.appendChild(nameElement);
-      })
-      .catch(error => console.error('Error fetching Pokemon data:', error));
-  </script>
-
 </body>
 </html>
